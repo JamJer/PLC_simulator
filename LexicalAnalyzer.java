@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  * Lexical analyzer
  */
 public class LexicalAnalyzer {
-	public static LinkedList<Symbol> SymbolTable=new LinkedList();	//Symbol Table
+	public LinkedList<Symbol> SymbolTable=new LinkedList();	//Symbol Table
 	public LinkedList<String> temp_t=new LinkedList();				//temp data
 	static final String BEGIN_TOKEN = "BEGIN_TOKEN";				//begin token
 	static final String COLON_TOKEN = "COLON_TOKEN";		 		//: token
@@ -61,7 +61,7 @@ public class LexicalAnalyzer {
 	 *	+ PLUS_TOKEN
 	 *	1 IDENTIFIER_TOKEN
 	 *	每個Symbol只會出現一次*/
-    public void genSymbolTable(String line){						//line是輸入字串
+    public LinkedList<Symbol> genSymbolTable(String line){						//line是輸入字串
     	LinkedList<String> temp_e=new LinkedList();					//存分析好的文字檔
     	StringTokenizer st=new StringTokenizer(line,"()><=,;+-*/ ",true);
     	String [] str=new String[2];								//為了判斷==,<=,>=
@@ -278,6 +278,7 @@ public class LexicalAnalyzer {
     			}
     		}
 		}
+		return SymbolTable;
 	 }
 	public static void main(String[] args) {
 		LinkedList<Symbol> s=new LinkedList();
@@ -287,14 +288,14 @@ public class LexicalAnalyzer {
 			FileReader fr = new FileReader("test_p.txt");
 			BufferedReader br = new BufferedReader(fr);
 			while((line=br.readLine())!=null){
-				a.genSymbolTable(line);
+				s=a.genSymbolTable(line);
 			}
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		for(int i=0;i<SymbolTable.size();i++){
-    		System.out.println(SymbolTable.get(i).toString());
+		for(int i=0;i<s.size();i++){
+    		System.out.println(s.get(i).toString());
     	}
 	}
 }
