@@ -1,28 +1,27 @@
-
 public class Symbol {
 	public String symType;
-	public String symValue;
+	public String symToken;
 	public Symbol(){
 		symType=null;
-		symValue=null;
+		symToken=null;
 	}
 	public Symbol(String s,String i){
 		this.symType=s;
-		this.symValue=i;
+		this.symToken=i;
 	}
 	public void setSymType(String Type){
 		this.symType=Type;
 	}
-	public void setSymvalue(String Value){
-		this.symValue=Value;
+	public void setSymToken(String Value){
+		this.symToken=Value;
 	}
 	public String getSymType(){
 		return this.symType;
 	}
-	public String getSymValue(){
-		return this.symValue;
+	public String getSymToken(){
+		return this.symToken;
 	}
 	public String toString(){
-		return "Type "+this.symType+" Value "+this.symValue;
+		return "Type "+this.symType+" Value "+this.symToken;
 	}
 }
