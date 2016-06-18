@@ -1,0 +1,35 @@
+# 若本例子應是一個可以執行成功的例子，若有任何問題，請同學告知我
+# 保留字或運算子：begin, for, end, if, while, int,
+# 運算子：+, -, *, /
+# 判斷子：<, >, =<, >=, ==, and, or
+# 假如有詞法或語法錯誤，請印出錯誤與說明
+# 請印出每個變數的最後結果數值
+
+
+begin;
+int x=0, yy = 4, zzz = 5;
+int i, j = 1;
+
+# 進行迴圈計算
+for, i=1, i<=10, j;  #  j 是 i 每次增加的數值     
+    		x=x+1;
+end; # for
+
+if (( x>5) and (j<=8));
+
+    for, i=1, i<=10, j+1;  
+        x=x+1;
+    end;   
+
+while (i < 11);
+       yy = x;
+end;
+
+end;  # if     
+
+	i = 0;
+while (i < 5);
+   i = i + 1;
+   yy = yy + 3;
+end;
+end; # begin

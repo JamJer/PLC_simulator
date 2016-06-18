@@ -1,0 +1,20 @@
+#GGGG
+begin;
+  int x=3,yy=4,zzz=5;
+  int i,j=2;
+  for,i=1,i<=50,j;
+    x=x+1;
+  end;
+  if((x>5)and(j==8));
+    for,i=1,i<=50,j+1;
+      x=x+1;
+      int x=5;
+    end;
+    while(x>6);
+      yy=x;#test
+    end;
+  end;
+  while(x>5);
+    yy=x+3;
+  end;
+end;

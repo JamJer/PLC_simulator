@@ -1,0 +1,372 @@
+Some things changed from Synthetica V2.1.0 to V2.2.0 or above. 
+In the following lines you can find all changes made within the "synth.xml" 
+file. If you are using a customized Synthetica look and feel which is based 
+on V2.1.0 or earlier, it is strongly recommended to apply all changes to your
+customized "synth.xml" file.
+
+<synth>
+
+...
+
+<!-- 
+*******************************************************************************
+Button
+*******************************************************************************
+-->
+  <style id="button">
+
+    ...
+
+    <state value="FOCUSED">
+      <!-- remarked since V2.2.0 see focus section -->
+      <!-- <imagePainter method="buttonBorder" path="standard/images/buttonFocus.png"
+                    sourceInsets="5 5 5 5" paintCenter="false" stretch="true" /> -->
+	  <painter method="buttonBackground" idref="syntheticaPainter" />  
+    </state>
+    
+    ...
+    
+    <state value="FOCUSED AND MOUSE_OVER">
+      <!-- remarked since V2.2.0 see focus section -->
+      <!-- <imagePainter method="buttonBorder" path="standard/images/buttonFocus.png" stretch="true"
+                    sourceInsets="5 5 5 5" paintCenter="false"/>  -->
+	  <painter method="buttonBackground" idref="syntheticaPainter" />
+    </state>
+
+    <state value="FOCUSED AND PRESSED">
+      <!-- remarked since V2.2.0 see focus section -->
+      <!-- <imagePainter method="buttonBorder" path="standard/images/buttonFocus.png" stretch="true"
+                    sourceInsets="5 5 5 5" paintCenter="false"/> -->
+	  <painter method="buttonBackground" idref="syntheticaPainter" />
+    </state>
+    
+    ...
+    
+    <state value="DEFAULT AND PRESSED">
+	  <imagePainter method="buttonBackground" path="standard/images/button_defaultAndPressed.png"
+                    sourceInsets="4 4 4 4" paintCenter="true" stretch="true"/>
+    </state>
+
+    <!-- new since V2.2.0 -->
+    <state value="DEFAULT AND MOUSE_OVER">
+      <imagePainter method="buttonBackground" path="standard/images/button_hover.png"
+                    sourceInsets="4 4 4 4" paintCenter="true" stretch="true"/>
+    </state> 
+
+    <!-- new since V2.2.0 -->
+    <state value="DEFAULT AND DISABLED">
+      <color type="TEXT_FOREGROUND" value="#A0A0A0"/>
+      <imagePainter method="buttonBackground" path="standard/images/button_disabled.png"
+                    sourceInsets="4 4 4 4" paintCenter="true" stretch="true"/>
+    </state> 
+
+    <state value="DEFAULT AND PRESSED AND FOCUSED">
+	  <imagePainter method="buttonBackground" path="standard/images/button_defaultAndPressed.png"
+                    sourceInsets="4 4 4 4" paintCenter="true" stretch="true"/>
+      <imagePainter method="buttonBorder" path="standard/images/buttonFocus.png"
+                    sourceInsets="5 5 5 5" paintCenter="false" stretch="true" />
+    </state>
+    
+    <!-- new since V2.2.0 -->
+    <state value="DEFAULT AND MOUSE_OVER AND FOCUSED">
+      <imagePainter method="buttonBackground" path="standard/images/button_hover.png"
+                    sourceInsets="4 4 4 4" paintCenter="true" stretch="true"/>
+      <imagePainter method="buttonBorder" path="standard/images/buttonFocus.png" stretch="true"
+                    sourceInsets="5 5 5 5" paintCenter="false"/>
+    </state>
+    
+    ...
+    
+<!-- 
+*******************************************************************************
+CheckBox
+*******************************************************************************
+-->
+  <style id="checkBox">
+
+    ...
+    
+    <state value="FOCUSED">
+      <!-- remarked since V2.2.0 see focus section -->
+      <!-- <object class="java.lang.String" id="checkBoxFocus">
+        <string>standard/images/focus.png</string>
+      </object>
+      <defaultsProperty key="Synthetica.checkBox.focus" type="idref" value="checkBoxFocus"/>
+      <defaultsProperty key="Synthetica.checkBox.focus.insets" type="insets" value="4 4 4 4"/> -->
+	  <painter method="checkBoxBackground" idref="syntheticaPainter" />
+    </state>
+
+...
+
+<!-- 
+*******************************************************************************
+ComboBox
+Note: editable ComboBox contains TextField and ArrowButton
+      non editable ComboBox contains Label and ArrowButton
+*******************************************************************************
+-->
+  <style id="comboBox">
+
+    ...
+
+    <state>
+
+      ...
+
+      <!-- remarked since V2.2.0 --> 
+      <!-- <imagePainter method="comboBoxBorder" path="standard/images/border.png"
+                    sourceInsets="3 3 3 3" paintCenter="false" stretch="true"/>  -->
+      <!-- new since V2.2.0 --> 
+      <object class="java.lang.String" id="comboBoxBorder">
+        <string>standard/images/border.png</string>
+      </object>
+      <defaultsProperty key="Synthetica.comboBox.border" type="idref" value="comboBoxBorder"/>
+      <defaultsProperty key="Synthetica.comboBox.border.insets" type="insets" value="3 3 3 3"/>
+      <painter method="comboBoxBorder" idref="syntheticaPainter" />
+	  <painter method="comboBoxBackground" idref="syntheticaPainter" />
+    </state>
+
+    <state value="FOCUSED">
+      ...
+      <!-- remarked since V2.2.0 -->       
+      <!-- <imagePainter method="comboBoxBorder" path="standard/images/border.png"
+                    sourceInsets="3 3 3 3" paintCenter="false" stretch="true"/> -->
+      <!-- new since V2.2.0 -->
+      <painter method="comboBoxBorder" idref="syntheticaPainter" />
+	  <painter method="comboBoxBackground" idref="syntheticaPainter" />
+    </state>
+
+...
+
+<!-- 
+*******************************************************************************
+Focus, complete new section since V2.2.0
+*******************************************************************************
+-->
+  <!-- default focus -->
+  <object class="java.lang.String" id="focus">
+    <string>standard/images/focus.png</string>
+  </object>
+  <defaultsProperty key="Synthetica.focus" type="idref" value="focus"/>
+  <defaultsProperty key="Synthetica.focus.insets" type="insets" value="4 4 4 4"/>
+
+  <object class="java.lang.String" id="focusButton">
+    <string>standard/images/buttonFocus.png</string>
+  </object>
+  <defaultsProperty key="Synthetica.focus.button" type="idref" value="focusButton"/>
+  <defaultsProperty key="Synthetica.focus.button.insets" type="insets" value="5 5 5 5"/>
+
+  <!-- no string means disabled, no entry means fallback to default focus -->
+  <object class="java.lang.String" id="focusToggleButton">
+    <string></string>
+  </object>
+  <defaultsProperty key="Synthetica.focus.toggleButton" type="idref" value="focusToggleButton"/>
+  <defaultsProperty key="Synthetica.focus.toggleButton.insets" type="insets" value="0 0 0 0"/>
+
+  <!-- no string means disabled, no entry means fallback to default focus -->
+  <object class="java.lang.String" id="focusTabbedPaneTab">
+    <string></string>
+  </object>
+  <defaultsProperty key="Synthetica.focus.tabbedPane.tab" type="idref" value="focusTabbedPaneTab"/>
+  <defaultsProperty key="Synthetica.focus.tabbedPane.tab.insets" type="insets" value="0 0 0 0"/>
+
+  <object class="java.lang.String" id="focusTaskPane">
+    <string>standard/images/focus.png</string>
+  </object>
+  <defaultsProperty key="Synthetica.focus.taskPane" type="idref" value="focusTaskPane"/>
+  <defaultsProperty key="Synthetica.focus.taskPane.insets" type="insets" value="4 4 4 4"/>
+
+  <object class="java.lang.String" id="focusHyperlink">
+    <string>standard/images/sliderFocus.png</string>
+  </object>
+  <defaultsProperty key="Synthetica.focus.hyperlink" type="idref" value="focusHyperlink"/>
+  <defaultsProperty key="Synthetica.focus.hyperlink.insets" type="insets" value="3 3 3 3"/> 
+
+...
+
+<!-- 
+*******************************************************************************
+Hyperlink
+*******************************************************************************
+-->
+  <!-- remarked since V2.2.0, see focus section -->
+  <!-- 
+  <object class="java.lang.String" id="hyperlinkFocus">
+    <string>standard/images/sliderFocus.png</string>
+  </object>
+  <defaultsProperty key="Synthetica.hyperlink.focus" type="idref" value="hyperlinkFocus"/>
+  <defaultsProperty key="Synthetica.hyperlink.focus.insets" type="insets" value="3 3 3 3"/> 
+  -->
+
+...
+
+<!-- 
+*******************************************************************************
+MenuItem
+*******************************************************************************
+-->
+  <style id="menuItem">
+
+    ...
+    
+    <state value="DISABLED AND SELECTED">
+      <!-- text foreground since V2.2.0 -->
+      <color type="TEXT_FOREGROUND" value="#A0A0A0" /> 
+      <color type="BACKGROUND" value="#F5F4F4" />
+      <property key="RadioButtonMenuItem.checkIcon" value="radioButtonIconDisabledAndSelected"/>
+      <property key="CheckBoxMenuItem.checkIcon" value="checkBoxIconDisabledAndSelected"/>
+    </state>
+
+...
+
+<!-- 
+*******************************************************************************
+RadioButton
+*******************************************************************************
+-->
+  <style id="radioButton">
+    
+    ...
+    
+    <state value="FOCUSED">
+      <!-- remarked since V2.2.0 see focus section -->
+      <!-- <object class="java.lang.String" id="radioButtonFocus">
+        <string>standard/images/focus.png</string>
+      </object>
+      <defaultsProperty key="Synthetica.radioButton.focus" type="idref" value="radioButtonFocus"/>
+      <defaultsProperty key="Synthetica.radioButton.focus.insets" type="insets" value="4 4 4 4"/> -->
+
+	  <painter method="radioButtonBackground" idref="syntheticaPainter" />
+    </state>
+
+...
+
+<!-- 
+*******************************************************************************
+Spinner
+*******************************************************************************
+-->
+  <style id="spinner">
+
+    ...
+
+    <state>
+      <color type="BACKGROUND" value="#FFFFFF" />
+      <!-- remarked since V2.2.0 -->
+      <!--  <imagePainter method="spinnerBorder" path="standard/images/border.png"
+                    sourceInsets="3 3 3 3" paintCenter="false" stretch="true"/>
+      <painter method="spinnerBackground" idref="syntheticaPainter" /> -->
+      <!-- new since V2.2.0 -->
+      <object class="java.lang.String" id="spinnerBorder">
+        <string>standard/images/border.png</string>
+      </object>
+      <defaultsProperty key="Synthetica.spinner.border" type="idref" value="spinnerBorder"/>
+      <defaultsProperty key="Synthetica.spinner.border.insets" type="insets" value="3 3 3 3"/>
+      <painter method="spinnerBorder" idref="syntheticaPainter" />
+      <painter method="spinnerBackground" idref="syntheticaPainter" />
+    </state>
+
+...
+
+<!-- 
+*******************************************************************************
+TabbedPane
+*******************************************************************************
+-->
+  ...
+  <style id="tabbedPaneTab">
+
+    ...
+
+    <state value="SELECTED">
+
+      ...
+      
+      <!-- renamed key since V2.2.0  -->
+      <defaultsProperty key="Synthetica.tabbedPane.tab.selected.insets" type="insets" value="7 4 7 4"/>
+
+	  <painter method="tabbedPaneTabBackground" idref="syntheticaPainter" />
+    </state>
+
+...
+
+    <state value="DISABLED">
+
+      ...
+
+      <!-- renamed key since V2.2.0  -->
+      <defaultsProperty key="Synthetica.tabbedPane.tab.disabled.insets" type="insets" value="3 3 3 3"/>
+
+	  <painter method="tabbedPaneTabBackground" idref="syntheticaPainter" />
+    </state>
+
+...
+
+<!-- 
+*******************************************************************************
+Table
+*******************************************************************************
+-->
+
+...
+
+  <style id="tableHeader">
+
+  ...
+
+  <bind style="tableHeader" type="region" key="TableHeader"/>
+  <!-- since V2.2.0, avoids plain header text with Java SE 6 on MOUSE_OVER -->
+  <bind style="tableHeader" type="name" key="TableHeader.renderer"/>
+
+...
+
+<!-- 
+*******************************************************************************
+TaskPane
+*******************************************************************************
+-->
+  
+  ...
+  
+  <!-- remarked since V2.2.0, see focus section -->
+  <!-- <object class="java.lang.String" id="taskPaneFocus">
+    <string>standard/images/focus.png</string>
+  </object>
+  <defaultsProperty key="Synthetica.taskPane.focus" type="idref" value="taskPaneFocus"/>
+  <defaultsProperty key="Synthetica.taskPane.focus.insets" type="insets" value="4 4 4 4"/>  -->
+
+...
+
+<!-- 
+*******************************************************************************
+ToolBar
+*******************************************************************************
+-->
+  
+  ...
+   
+  <style id="toolBarSeparator">
+
+    ...
+
+    <state>
+
+      ...
+
+      <!-- property name changed since V2.2.0 (toolBarSeparator -> separator.toolBar) -->
+      <defaultsProperty key="Synthetica.separator.toolBar.image.x" type="idref" value="toolBarSeparatorX"/>
+
+      <!-- vertical separator / horizontal toolbar -->
+      <object class="java.lang.String" id="toolBarSeparatorY">
+        <string>standard/images/toolBarSeparatorY.png</string>
+      </object>
+
+      <!-- property name changed since V2.2.0 (toolBarSeparator -> separator.toolBar) -->
+      <defaultsProperty key="Synthetica.separator.toolBar.image.y" type="idref" value="toolBarSeparatorY"/>
+
+      <!-- property name changed since V2.2.0 (toolBarSeparator -> separator.toolBar) -->
+      <defaultsProperty key="Synthetica.separator.toolBar.image.insets" type="insets" value="3 3 3 3"/>
+
+...
+
+</synth>

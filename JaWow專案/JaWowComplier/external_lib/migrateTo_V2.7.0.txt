@@ -1,0 +1,5 @@
+Find the following line:
+    <object class="de.javasoft.plaf.synthetica.painter.ToolBarHandlePainter" id="toolBarHandle" />
+
+and replace with:
+    <object class="de.javasoft.plaf.synthetica.painter.ToolBarHandle" id="toolBarHandle" />

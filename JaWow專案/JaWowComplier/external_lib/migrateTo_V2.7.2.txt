@@ -1,0 +1,5 @@
+Related to all keys which contain the String 'flexdock'
+
+- replace the string '.flexdock' with '.docking'
+- replace the string '.pin.docked' with '.restore' (4 matches) 
+- replace the string '.pin' with '.iconify' (4 matches) 
